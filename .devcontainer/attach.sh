@@ -9,11 +9,11 @@ echo -e "\033[1;32mBoa prova! \033[0m"
 tko -v
 echo ""
 echo ""
-read -p "[pressione a tecla Enter para continuar]"
+read -p "Pressione Enter para continuar..." # espera úsuario apertar Enter
 
 if [ -d poo ]; then
     tko play poo
 else
-    echo s | tko init --remote poo
-    echo ts | tko play poo
+    echo s | tko init --remote poo # confirma a instalação do diretorio ./poo
+    echo ts | tko play poo         # configura a versão para ts e abre
 fi

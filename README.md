@@ -1,48 +1,52 @@
----
-nomeAluno: "Seu nome"
-matricula: "Digite sua matrícula aqui por obséquio"
----
+Motivo: Não precisar ficar atualizando o tko manualmente, não precisar ficar checando a versão do aluno para ver se está desatualizada.
 
-# Bom trabalho
+O código é rodado sempre que o aluno se conecta no codespace seja entrando pelo github ou atualizando a página.
 
-## TKO
+Se eu tivesse feito tudo para rodar no mesmo **terminal**. Ele não rodaria novamente só se o terminal fosse apagado e a página atualizada. Como muitas pessoas iriam esquecer de fechar e 
 
-```bash
-## Criando seu novo repositório
-tko init --remote [fup|ed|poo]
+Para isso eu criei duas linhas de código que vão rodar simultaneamente e um script que atualiza o tko, mostra a versão, dá mensagem de boas vindas ao aluno e abre o tko e se o repositorio do tko não tiver sido inicializado ele roda o `tko init --remote` e configura para `ts` e abre.
 
-## Interagindo com seu repositório
-tko open <pasta>
+tko: 
 
-## Rodando um código diretamente
-tko test <arquivo_codigo>  # usando interface default
-tko run  <arquivo_codigo>  # usando interface curses
+Fecha todos os terminais se não houver terminais gera um erro.
+Continua mesmo se tiver dado erro.
+Limpa a tela
+Roda o attach.sh
 
-## Atualizando o tko
-pipx upgrade tko
-```
+tk0: 
 
-## Comandos do Git
+espera um segundo.
+Fecha todos os terminais se não houver terminais gera um erro.
+Continua somente se não tiver dado erro.
+Limpa a tela
+Roda o attach.sh
 
-- `git add <arquivo>`: Adiciona um arquivo ao stage
-- `git add .`: Adiciona todos os arquivos ao stage
-- `git commit -m "mensagem"`: Cria um commit com os arquivos no stage
-- `git push`: Envia os commits para o repositório remoto
-- `git pull`: Atualiza o repositório local com as mudanças do repositório remoto
-- `git status`: Mostra o estado atual do repositório
-- `git log`: Mostra o histórico de commits
-- `git clone <url>`: Clona um repositório remoto para uma pasta local
+Ambos os códigos rodam em paralelo. Como um flip-flop.
 
-## Resolvendo Conflitos
+**Teste todos os terminais fechados:**
+tk0 dá erro e não continua
+tko roda.
 
-- Antes de trabalhar num respositório, lembre de fazer o pull.
-- Se quando for fazer o push, der erro, tente as seguintes opções.
-  - git pull --ff-only
-  - git rebase
-  - git pull --no-rebase
-- Se não der certo, cole o erro no chatgpt e siga as instruções.
-- Se não der certo, mande o erro no grupo do telegram.
+**teste tko aberto e tk0 fechado:**
+tko não roda. (pois o codespace não reinicia o terminal toda vez que a pessoa entra)
+tk0 consegue fechar o tko e roda.
 
-## Lembre-se
+**Teste tko fechado e tk0 aberto:**
+tk0 não roda.
+tko dá erro e continua.
 
-- Sua consciência é a melhor ferramenta contra o plágio.
+**Teste um terminal aberto e os dois fechados:**
+tko é mais rapido porcausa que o tk0 espera 1s para iniciar. E fecha todos os terminais
+tk0 é fechado.
+
+## Explicação do código do attach.sh
+
+atualiza o tko e limpa a tela
+imprime mensagens
+imprime a versão do tko
+imprime "[pressione a tecla Enter para continuar]" e espera o usuario apertar Enter.
+Se o diretorio poo existir
+	tko play poo
+Se não
+	echo s | tko init --remote poo
+	echo ts | tko play poo
