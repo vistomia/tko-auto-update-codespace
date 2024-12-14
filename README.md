@@ -63,7 +63,7 @@ Se não
 
 ## Implementar
 
-Para implementar precisa colocar adicionar no objeto .devcontainer/devcontainer.json:
+Para implementar precisa adicionar no objeto do .devcontainer/devcontainer.json:
 ```json
   "postAttachCommand": {
         "tk0": "sleep 1 && set +x && ps aux | grep '[b]ash' | grep -v $$ | awk '{print $2}' | xargs kill -9 && clear && bash .devcontainer/attach.sh",
