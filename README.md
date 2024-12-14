@@ -23,29 +23,29 @@ Roda o attach.sh
 
 tk0: 
 
--espera um segundo.
--Fecha todos os terminais se não houver terminais gera um erro.
--Continua somente se não tiver dado erro.
--Limpa a tela
--Roda o attach.sh
+- espera um segundo.
+- Fecha todos os terminais se não houver terminais gera um erro.
+- Continua somente se não tiver dado erro.
+- Limpa a tela
+- Roda o attach.sh
 
 Ambos os códigos rodam em paralelo. Como um flip-flop.
 
 **Teste todos os terminais fechados:**
--tk0 dá erro e não continua
--tko roda.
+- tk0 dá erro e não continua
+- tko roda.
 
 **teste tko aberto e tk0 fechado:**
--tko não roda. (pois o codespace não reinicia o terminal toda vez que a pessoa entra)
--tk0 consegue fechar o tko e roda.
+- tko não roda. (pois o codespace não reinicia o terminal toda vez que a pessoa entra)
+- tk0 consegue fechar o tko e roda.
 
 **Teste tko fechado e tk0 aberto:**
--tk0 não roda.
--tko dá erro e continua.
+- tk0 não roda.
+- tko dá erro e continua.
 
 **Teste um terminal aberto e os dois fechados:**
--tko é mais rapido porcausa que o tk0 espera 1s para iniciar. E fecha todos os terminais
--tk0 é fechado.
+- tko é mais rapido porcausa que o tk0 espera 1s para iniciar. E fecha todos os terminais
+- tk0 é fechado.
 
 ## Explicação do código do attach.sh
 
