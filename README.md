@@ -1,12 +1,20 @@
-Motivo: Não precisar ficar atualizando o tko manualmente, não precisar ficar checando a versão do aluno para ver se está desatualizada.
+Motivo: Não precisar ficar atualizando o tko manualmente, sempre mostrar a versão do aluno, sempre executar `tko play poo` quando abrir um codespace.
 
 O código é rodado sempre que o aluno se conecta no codespace seja entrando pelo github ou atualizando a página.
 
 Se eu tivesse feito tudo para rodar no mesmo **terminal**. Ele não rodaria novamente só se o terminal fosse apagado e a página atualizada. Como muitas pessoas iriam esquecer de fechar e 
 
-Para isso eu criei duas linhas de código que vão rodar simultaneamente e um script que atualiza o tko, mostra a versão, dá mensagem de boas vindas ao aluno e abre o tko e se o repositorio do tko não tiver sido inicializado ele roda o `tko init --remote` e configura para `ts` e abre.
+Para isso eu criei duas linhas de código no `./devcontainer/devcontainer.json` que vão rodar simultaneamente. Além disso, um script que atualiza o tko, mostra a versão, dá mensagem de boas vindas ao aluno e abre o tko e se o repositorio do tko não tiver sido inicializado ele roda o `tko init --remote`, configura para `ts` e abre.
 
-tko: 
+## Explicação
+
+As duas linhas que serão sempre executadas quando o codespace for conectado.
+```sh
+"tk0": "sleep 1 && set +x && ps aux | grep '[b]ash' | grep -v $$ | awk '{print $2}' | xargs kill -9 && clear && bash .devcontainer/attach.sh",
+"tko": "set +x && ps aux | grep '[b]ash' | grep -v $$ | awk '{print $2}' | xargs kill -9; clear && bash .devcontainer/attach.sh"
+```
+
+tko:
 
 Fecha todos os terminais se não houver terminais gera um erro.
 Continua mesmo se tiver dado erro.
