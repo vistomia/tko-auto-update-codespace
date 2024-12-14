@@ -1,10 +1,10 @@
 ## Motivo
 
-Não precisar ficar atualizando o tko manualmente, sempre mostrar a versão do aluno, sempre executar `tko play poo` quando abrir um codespace.
+Não precisar ficar atualizando o tko manualmente, sempre mostrar a versão do tko e executar `tko play poo` quando abrir um codespace.
 
-O código é rodado sempre que o aluno se conecta no codespace seja entrando pelo github ou atualizando a página.
+O código é rodado sempre que o aluno se conecta ou cria um **codespace** nos repositorios de prova.
 
-Se eu tivesse feito para rodar no mesmo **terminal**. Ele não rodaria novamente se a página fosse recarregada. Só se o terminal fosse apagado e a página atualizada. Como muitas pessoas iriam esquecer de apagar. Eu criei duas linhas de código no `./devcontainer/devcontainer.json` que vão rodar simultaneamente. Além disso, um script que atualiza o tko, mostra a versão, dá mensagem de boas vindas ao aluno e abre o tko e se o repositorio do tko não tiver sido inicializado ele roda o `tko init --remote`, configura para `ts` e abre.
+Se eu tivesse feito para rodar no mesmo **terminal**. Ele não rodaria novamente se a página fosse recarregada. Só se o terminal fosse apagado e a página atualizada. Como muitas pessoas iriam esquecer de apagar. Eu criei duas linhas de código no `./devcontainer/devcontainer.json` que vão abrir dois terminais simultaneamente. Além disso, um script que atualiza o tko, mostra a versão, dá mensagem de boas vindas ao aluno e abre o tko e se o repositorio do tko não tiver sido inicializado ele roda o `tko init --remote`, configura para `ts` e abre.
 
 ## Explicação
 
