@@ -21,5 +21,8 @@
     }
   },
   "postCreateCommand": "bash .devcontainer/install.sh",
-  "postStartCommand": "echo Bem Vindo"
+  "postAttachCommand": {
+        "tk0": "set +x && ps aux | grep '[b]ash' | grep -v $$ | awk '{print $2}' | xargs kill -9 && bash .devcontainer/attach.sh",
+        "tko": "set +x && ps aux | grep '[b]ash' | grep -v $$ | awk '{print $2}' | xargs kill -9 && bash .devcontainer/attach.sh"
+  }
 }
