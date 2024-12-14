@@ -16,10 +16,10 @@ As duas linhas que serão sempre executadas quando o codespace for conectado.
 
 tko:
 
-Fecha todos os terminais se não houver terminais gera um erro.
-Continua mesmo se tiver dado erro.
-Limpa a tela
-Roda o attach.sh
+- Fecha todos os terminais se não houver terminais gera um erro.
+- Continua mesmo se tiver dado erro.
+- Limpa a tela
+- Roda o attach.sh
 
 tk0: 
 
