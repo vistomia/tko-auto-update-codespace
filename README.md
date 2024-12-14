@@ -41,10 +41,10 @@ Ambos os códigos rodam em paralelo. Como um flip-flop.
 
 **Teste tko fechado e tk0 aberto:**
 - tk0 não roda.
-- tko dá erro e continua.
+- tko fecha o tk0 e roda.
 
 **Teste um terminal aberto e os dois fechados:**
-- tko é mais rapido porcausa que o tk0 espera 1s para iniciar. E fecha todos os terminais
+- tko é mais rapido porcausa que o tk0 precisa espera 1s para iniciar. Fecha todos os terminais e roda.
 - tk0 é fechado.
 
 ## Explicação do código do attach.sh
