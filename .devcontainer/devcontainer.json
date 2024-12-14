@@ -20,5 +20,6 @@
       ]
     }
   },
-  "postCreateCommand": "bash .devcontainer/install.sh"
+  "postCreateCommand": "bash .devcontainer/install.sh",
+  "postStartCommand": "echo Bem Vindo"
 }
