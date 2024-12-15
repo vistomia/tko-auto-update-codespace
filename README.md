@@ -58,7 +58,8 @@ Se o diretorio poo existir
 	tko play poo
 Se não
 	echo s | tko init --remote poo
-	echo ts | tko play poo
+  limpa a tela
+	tko play poo
 ```
 
 ## Implementar
@@ -86,6 +87,7 @@ if [ -d poo ]; then
     tko play poo
 else
     echo s | tko init --remote poo # confirma a instalação do diretorio ./poo
+    clear
     tko play poo                   # configura a versão para ts e abre
 fi
 ```
