@@ -67,37 +67,15 @@ Se não
 Para implementar precisa adicionar no objeto do `.devcontainer/devcontainer.json`:
 ```json
   "postAttachCommand": {
-        "tk0": "sleep 1 && set +x && ps aux | grep '[b]ash' | grep -v $$ | awk '{print $2}' | xargs kill -9 && clear && bash .devcontainer/attach.sh",
-        "tko": "set +x && ps aux | grep '[b]ash' | grep -v $$ | awk '{print $2}' | xargs kill -9; clear && bash .devcontainer/attach.sh"
+        "tko": "set +x && ps aux | grep '[b]ash' | grep -v $$ | awk '{print $2}' | xargs kill -9; clear && bash .devcontainer/attach.sh",
+        "tk0": "sleep 1 && set +x && ps aux | grep '[b]ash' | grep -v $$ | awk '{print $2}' | xargs kill -9 && clear && bash .devcontainer/attach.sh"
   }
 ```
 
-Adicionar o arquivo `attach.sh` na pasta `./devcontainer`
+Adicionar o arquivo `attach.sh` na pasta `./.devcontainer`
 
-```sh
-set +x 
-pipx upgrade tko && clear
-printf "$(cat .devcontainer/welcome.txt)\n"
-tko -v
-echo ""
-echo ""
-read -p "Pressione Enter para continuar..." # espera úsuario apertar Enter
+[attach.sh](./.devcontainer/attach.sh)
 
-if [ -d poo ]; then
-    tko play poo
-else
-    echo s | tko init --remote poo # confirma a instalação do diretorio ./poo
-    clear
-    tko play poo                   # configura a versão para ts e abre
-fi
-```
+Colocar `welcome.txt` na pasta `./.devcontainer`
 
-Criar um `.devcontainer/welcome.txt`
-
-```
-\033[1;32mTudo pronto para mais uma jornada! 😊\033[0m
-\033[1;32mProva Turma PDD Quinta-feira\033[0m
-\033[1;32mProva Turma PDD Quarta-feira 31/02/2025\033[0m
-\033[1;32mBoa teste!\033[0m
-\033[1;32mBoa prova!\033[0m
-```
+[welcome.txt](./.devcontainer/welcome.txt)
