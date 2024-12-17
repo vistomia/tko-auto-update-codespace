@@ -1,11 +1,3 @@
-## Motivo
-
-Não precisar ficar atualizando o tko manualmente, sempre mostrar a versão do tko e executar `tko play poo` quando abrir um codespace.
-
-O código é rodado sempre que o aluno se conecta ou cria um **codespace** nos repositorios de prova.
-
-Se eu tivesse feito para rodar no mesmo **terminal**. Ele não rodaria novamente se a página fosse recarregada. Só se o terminal fosse apagado e a página atualizada. Como muitas pessoas iriam esquecer de apagar. Eu criei duas linhas de código no `./devcontainer/devcontainer.json` que vão abrir dois terminais simultaneamente. Além disso, um script que atualiza o tko, mostra a versão, dá mensagem de boas vindas ao aluno e abre o tko e se o repositorio do tko não tiver sido inicializado ele roda o `tko init --remote`, configura para `ts` e abre.
-
 ## Explicação
 
 As duas linhas que serão sempre executadas quando o codespace for conectado.
@@ -47,21 +39,6 @@ Ambos os códigos rodam em paralelo. Como um flip-flop.
 - tko é mais rapido porcausa que o tk0 precisa espera 1s para iniciar. Fecha todos os terminais e roda.
 - tk0 é fechado.
 
-## Explicação do código do attach.sh
-
-```
-atualiza o tko e limpa a tela
-imprime mensagens
-imprime a versão do tko
-imprime "[pressione a tecla Enter para continuar]" e espera o usuario apertar Enter.
-Se o diretorio poo existir
-	tko play poo
-Se não
-	echo s | tko init --remote poo
-  limpa a tela
-	tko play poo
-```
-
 ## Implementar
 
 Para implementar precisa adicionar no objeto do `.devcontainer/devcontainer.json`:
@@ -75,6 +52,8 @@ Para implementar precisa adicionar no objeto do `.devcontainer/devcontainer.json
 Adicionar o arquivo `attach.sh` na pasta `./.devcontainer`
 
 [attach.sh](./.devcontainer/attach.sh)
+
+Na linha 11 você pode definir um repositório padrão. Mas, se não definir, o script prossegue verificando outros repositórios disponíveis (poo, fup ou ed). Caso nenhum desses diretórios existam, o usuário será solicitado a escolher manualmente.
 
 Colocar `welcome.txt` na pasta `./.devcontainer`
 

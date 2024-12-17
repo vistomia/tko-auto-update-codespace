@@ -11,7 +11,13 @@ read -p "Pressione Enter para continuar..." # espera úsuario apertar Enter
 default_repo=""
 
 if [ "$default_repo" != "" ]; then
-    tko play "$default_repo"
+    if [ -d $default_repo ]; then
+        tko play "$default_repo"
+    else
+        echo s | tko init --remote "$repo"
+        clear
+        tko play "$repo"
+    fi
 elif [ -d ed ]; then
     tko play ed
 elif [ -d poo ]; then
